@@ -1,0 +1,10 @@
+.main-container {
+  font-size: 40px;
+  background-color: brown;
+}
+
+h1 {
+  color: pink;
+  border: 2px solid black;
+  border-radius: 16px;
+}
