@@ -1,12 +1,19 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Counter from "./Counter";
 import Header from "./Header";
+import Home from "./Home";
+import Help from "./Help";
 
 function App() {
   return (
     <>
       <Header />
-      <Counter />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/help" element={<Help />} />
+        </Routes>
+      </main>
     </>
   );
 }
