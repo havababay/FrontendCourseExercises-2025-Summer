@@ -7,12 +7,16 @@ import {
   ListItemText,
   Toolbar,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -38,9 +42,20 @@ export default function Header() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" component="div">
+            <Typography variant="h1" component="div">
               Grade Insight
             </Typography>
+            {!isMobile && (
+              <div style={{ marginLeft: "auto", display: "flex", gap: "1rem" }}>
+                <List>
+                  <ListItem component="button" onClick={() => handleNavigation("/")}>
+                    <ListItemText primary="Home" />
+                  </ListItem>
+                  <ListItem component="button" onClick={() => handleNavigation("/help")}>
+                    <ListItemText primary="Help" />
+                </ListItem>
+                </List>
+    </div>)}
           </Toolbar>
         </AppBar>
       </header>

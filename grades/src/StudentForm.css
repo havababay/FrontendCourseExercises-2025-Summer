@@ -1,0 +1,15 @@
+.title {
+    background-color: blue;
+}
+
+@media (min-width: 600px) {
+    .title {
+        background-color: lightblue;
+    }
+}
+
+@media (min-width: 900px) {
+    .title {
+        background-color: pink;
+    }
+}

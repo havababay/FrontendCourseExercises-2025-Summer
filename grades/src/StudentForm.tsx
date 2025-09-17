@@ -7,6 +7,7 @@ import {
   getStudent,
   updateStudent,
 } from "./firestore/studentService";
+import "./StudentForm.css";
 
 export default function StudentForm() {
   const navigate = useNavigate();
@@ -74,7 +75,7 @@ export default function StudentForm() {
 
   return (
     <>
-      <h1>Student Form</h1>
+      <h1 className="title">Student Form</h1>
       <p>Fill out the form below to add a new student.</p>
       {isLoading ? (
         <LinearProgress sx={{ width: "30ch", mt: 4 }} />
@@ -83,7 +84,9 @@ export default function StudentForm() {
           component="form"
           onSubmit={handleSubmit}
           sx={{
-            "& .MuiTextField-root": { m: 1, width: "30ch" },
+            width: {
+              sm: "90%", md: "40ch", lg: "30ch"
+            },
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -97,6 +100,7 @@ export default function StudentForm() {
             label="First Name"
             value={student.firstName}
             onChange={handleChange}
+            fullWidth
           />
           <TextField
             required
@@ -104,6 +108,7 @@ export default function StudentForm() {
             label="Last Name"
             value={student.lastName}
             onChange={handleChange}
+            fullWidth
           />
           <TextField
             required
@@ -112,6 +117,7 @@ export default function StudentForm() {
             type="email"
             value={student.email}
             onChange={handleChange}
+            fullWidth
           />
           <Button type="submit" variant="contained" sx={{ mt: 2 }}>
             Save Student
